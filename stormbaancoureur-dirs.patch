@@ -1,0 +1,33 @@
+--- stormbaancoureur-2.0.2/src-stormbaancoureur/Makefile~	2008-01-07 11:57:48.000000000 +0100
++++ stormbaancoureur-2.0.2/src-stormbaancoureur/Makefile	2008-01-07 12:02:12.000000000 +0100
+@@ -99,16 +99,16 @@
+ clean:
+ 	rm -f *.o stormbaancoureur
+ 
+-GAMEDIR=$(DESTDIR)/usr/share/games/stormbaancoureur
++GAMEDIR=$(DESTDIR)/usr/share/stormbaancoureur
+ install: stormbaancoureur
+ 	# Directories
+-	mkdir -p $(DESTDIR)/usr/games/
++	mkdir -p $(DESTDIR)/usr/bin/
+ 	mkdir -p $(GAMEDIR)/images/
+ 	mkdir -p $(GAMEDIR)/sounds/
+ 	mkdir -p $(GAMEDIR)/shaders/
+ 	mkdir -p $(GAMEDIR)/models/
+ 	# Binary
+-	install stormbaancoureur $(DESTDIR)/usr/games/stormbaancoureur
++	install stormbaancoureur $(DESTDIR)/usr/bin/stormbaancoureur
+ 	# Images
+ 	install -m 644 images/engine.tga $(GAMEDIR)/images/engine.tga
+ 	install -m 644 images/info_carpet_smooth.rgb $(GAMEDIR)/images/info_carpet_smooth.rgb
+--- stormbaancoureur-2.0.2/src-stormbaancoureur/main.cxx~	2008-01-06 21:50:43.000000000 +0100
++++ stormbaancoureur-2.0.2/src-stormbaancoureur/main.cxx	2008-01-07 12:11:02.000000000 +0100
+@@ -1186,7 +1186,7 @@
+ 
+   char *bindirname  = dirname(argv[0]);
+   if (!strcmp(bindirname,"."))
+-    dirprefix="/usr/share/games/stormbaancoureur";
++    dirprefix="/usr/share/stormbaancoureur";
+   else
+   {
+     dirprefix = dirname(bindirname) + std::string("/share/games/stormbaancoureur");
