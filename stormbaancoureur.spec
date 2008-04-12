@@ -1,17 +1,22 @@
+#
+# TODO:
+# - make it builds on 64 bits
+#
 Summary:	Simulated obstacle course for automobiles
 Summary(pl.UTF-8):	Symulowany kurs samochodowy z przeszkodami
 Name:		stormbaancoureur
-Version:	2.0.2
+Version:	2.1.3
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://bram.creative4vision.nl/sturmbahnfahrer/download/%{name}-%{version}.tar.gz
-# Source0-md5:	49a2f58689093efe4f1f729a076de143
+# Source0-md5:	5475c64d85d0921f446cf9fbb3b73c35
 Patch0:		%{name}-dirs.patch
 URL:		http://www.sturmbahnfahrer.com/
 BuildRequires:	OpenGL-glut-devel
 BuildRequires:	ode-devel >= 0.8
 BuildRequires:	plib-devel >= 1.8.4
+BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -27,7 +32,7 @@ korzystania z praw fizyki.
 %prep
 %setup -q
 %patch0 -p1
-sed -e 's/libode.a/libode.so/g' -i src-%{name}/Makefile
+%{__sed} -i -e 's/libode.a/libode.so/g' src-%{name}/Makefile
 
 %build
 cd src-%{name}
