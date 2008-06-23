@@ -1,9 +1,9 @@
 #
 # TODO:
-# - make it builds on 64 bits
+# - make it build on 64 bits
 #
 Summary:	Simulated obstacle course for automobiles
-Summary(pl.UTF-8):	Symulowany kurs samochodowy z przeszkodami
+Summary(pl.UTF-8):	Symulowany rajd samochodowy z przeszkodami
 Name:		stormbaancoureur
 Version:	2.1.4
 Release:	1
@@ -25,7 +25,7 @@ course. Success depends on total control of the car, and making use of
 the laws of physics.
 
 %description -l pl.UTF-8
-W tej grze zadaniem gracza jest kierowanie samochodem przez kurs z
+W tej grze zadaniem gracza jest kierowanie samochodem podczas rajdu z
 przeszkodami. Sukces zależy od całkowitej kontroli samochodu oraz
 korzystania z praw fizyki.
 
@@ -35,8 +35,7 @@ korzystania z praw fizyki.
 %{__sed} -i -e 's/libode.a/libode.so/g' src-%{name}/Makefile
 
 %build
-cd src-%{name}
-%{__make} \
+%{__make} -C src-%{name} \
 	CXX="%{__cxx}" \
 	CXXFLAGS="%{rpmcxxflags} -I../src-common -DGAMEVERSION=%{version}" \
 	LFLAGS="%{rpmldflags}"
@@ -44,8 +43,7 @@ cd src-%{name}
 %install
 rm -rf $RPM_BUILD_ROOT
 
-cd src-%{name}
-%{__make} install \
+%{__make} -C src-%{name} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
