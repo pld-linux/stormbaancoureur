@@ -5,14 +5,14 @@
 Summary:	Simulated obstacle course for automobiles
 Summary(pl.UTF-8):	Symulowany rajd samochodowy z przeszkodami
 Name:		stormbaancoureur
-Version:	2.1.4
+Version:	2.1.5
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Games
-Source0:	http://bram.creative4vision.nl/sturmbahnfahrer/download/%{name}-%{version}.tar.gz
-# Source0-md5:	67c363ebe0c6e7d36dc4ac338225fcff
+Source0:	http://bram.creative4vision.nl/stormbaancoureur/download/%{name}-%{version}.tar.gz
+# Source0-md5:	18aa9e5f34ede655d6530e6f022a455e
 Patch0:		%{name}-dirs.patch
-URL:		http://www.sturmbahnfahrer.com/
+URL:		http://bram.creative4vision.nl/stormbaancoureur/
 BuildRequires:	OpenGL-glut-devel
 BuildRequires:	ode-devel >= 0.8
 BuildRequires:	plib-devel >= 1.8.4
